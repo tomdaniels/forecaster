@@ -1,0 +1,19 @@
+h4 {
+  /* replace default markup styles */
+  margin: 0;
+}
+
+.forecaster__forecast-wrapper {
+  margin-top: 20px;
+}
+
+.forecaster__forecast-summary-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.forecaster__forecast-summary {
+  display: flex;
+  justify-content: space-between;
+}
