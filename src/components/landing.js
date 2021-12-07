@@ -11,6 +11,8 @@ function Landing() {
   const [showForecast, setShowForecast] = useState(false);
 
   const handleChange = event => {
+    setForecast({});
+    setShowForecast(false);
     setLocation(event.target.value);
   };
 
