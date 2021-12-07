@@ -2,7 +2,7 @@ import LocationSearch from '../index';
 
 const { shallow } = enzyme;
 
-describe('location-search.js', () => {
+describe('index.js', () => {
   describe('<LocationSearch />', () => {
     let wrapper;
     beforeEach(() => {
