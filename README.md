@@ -31,6 +31,6 @@ Your static single page app is ready to be deployed!
 
 ### Asides
 
-- pre tag as error handler: the `location-api` could reinstate the commented out code to actually throw an error if the api fails, and our lovely designers could create a real fallback component to allow the user to retry. In the interest of time and practicality I decided returning `undefined` in this case is (hopefully) good enough
+- pre tag as error handler: the `location-api` could reinstate the commented out code to actually throw an error if the api fails, and our lovely designers could create a real fallback component to allow the user to retry. In the interest of time and practicality I decided returning `undefined` in this case is probably sufficient
 
 - loader test file: my test description of course wouldn't be that silly in production apps, though without a real design it seemed fitting to inject some personality instead ;)
