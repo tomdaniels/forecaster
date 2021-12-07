@@ -48,17 +48,13 @@ describe('forecast-summary.js', () => {
         expect(wrapper.find('h4').at(idx).text()).toEqual(forecastData[idx].date);
         expect(wrapper.find('p').at(idx).text()).toEqual(forecastData[idx].day.condition.text);
         expect(wrapper.find('img').at(idx).props().alt).toEqual(forecastData[idx].day.condition.icon);
-        expect(wrapper.find('.forecaster__forecast-summary-header')
-          .at(idx)
-          .childAt(2)
-          .find('strong')
-          .text()).toEqual(forecastData[idx].day.mintemp_c.toString());
 
         expect(wrapper.find('.forecaster__forecast-summary-header')
           .at(idx)
-          .childAt(5)
-          .find('strong')
-          .text()).toEqual(forecastData[idx].day.maxtemp_c.toString());
+          .text()).toContain(forecastData[idx].day.mintemp_c.toString());
+        expect(wrapper.find('.forecaster__forecast-summary-header')
+          .at(idx)
+          .text()).toContain(forecastData[idx].day.maxtemp_c.toString());
       });
     });
   });
