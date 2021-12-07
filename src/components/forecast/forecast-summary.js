@@ -15,7 +15,7 @@ const ForecastSummary = ({ forecast }) => (
           max: <strong>{item.day.maxtemp_c}</strong>
         </div>
         <div className="forecaster__forecast-summary">
-          <img src={item.day.condition.icon} alt="forecast-icon" />
+          <img src={item.day.condition.icon} alt={item.day.condition.icon} />
           <p>{item.day.condition.text}</p>
         </div>
       </React.Fragment>
@@ -24,7 +24,17 @@ const ForecastSummary = ({ forecast }) => (
 );
 
 ForecastSummary.propTypes = {
-  forecast: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  forecast: PropTypes.arrayOf(PropTypes.shape({
+    date: PropTypes.string,
+    day: PropTypes.shape({
+      mintemp_c: PropTypes.number,
+      maxtemp_c: PropTypes.number,
+      condition: PropTypes.shape({
+        text: PropTypes.string,
+        icon: PropTypes.string,
+      }),
+    }),
+  })).isRequired,
 };
 
 export default ForecastSummary;

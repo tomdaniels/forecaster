@@ -23,7 +23,7 @@ const Forecast = ({ forecastData }) => {
           {currentConditions.text}
           <img alt={`${location.name}-forcast-icon`} src={currentConditions.icon} />
         </div>
-        <ForecastSummary forecast={forecast} />
+        {forecast?.length > 0 && <ForecastSummary forecast={forecast} />}
       </div>
     )}
     </section>
