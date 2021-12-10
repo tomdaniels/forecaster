@@ -1,16 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import get from 'lodash/get';
 import ForecastSummary from './forecast-summary';
 import Loader from './loader';
 
 import '../style/forecast.css';
 
 const Forecast = ({ forecastData }) => {
-  const pickFrom = path => get(forecastData, path);
-  const currentConditions = pickFrom('current.condition');
-  const forecast = pickFrom('forecast.forecastday');
-  const location = pickFrom('location', '');
+  const { location, currentConditions, forecast } = forecastData;
 
   return (
     <section className="forecaster__forecast-wrapper">
@@ -35,12 +31,21 @@ Forecast.propTypes = {
     location: PropTypes.shape({
       name: PropTypes.string,
     }),
-    current: PropTypes.shape({
-      condition: PropTypes.shape({
-        text: PropTypes.string,
-        icon: PropTypes.string,
-      }),
+    currentConditions: PropTypes.shape({
+      text: PropTypes.string,
+      icon: PropTypes.string,
     }),
+    forecast: PropTypes.arrayOf(PropTypes.shape({
+      date: PropTypes.string,
+      day: PropTypes.shape({
+        mintemp_c: PropTypes.number,
+        maxtemp_c: PropTypes.number,
+        condition: PropTypes.shape({
+          text: PropTypes.string,
+          icon: PropTypes.string,
+        }),
+      }),
+    })),
   }),
 };
 

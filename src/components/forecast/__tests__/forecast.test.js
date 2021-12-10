@@ -7,11 +7,9 @@ describe('index.js', () => {
     location: {
       name: 'cronulla',
     },
-    current: {
-      condition: {
-        text: 'sunny baby',
-        icon: 'file-stub',
-      },
+    currentConditions: {
+      text: 'sunny baby',
+      icon: 'file-stub',
     },
   };
   describe('<Forecast />', () => {
@@ -36,43 +34,43 @@ describe('index.js', () => {
     it('renders the forecast summary component for the future days ahead', () => {
       const forecastProps = {
         ...dummyData,
-        forecast: {
-          forecastday: [
-            {
-              date: '2021-01-01',
-              day: {
-                mintemp_c: 17,
-                maxtemp_c: 22,
-                condition: {
-                  text: 'fair',
-                  icon: 'beautiful-img',
-                },
+
+        forecast: [
+          {
+            date: '2021-01-01',
+            day: {
+              mintemp_c: 17,
+              maxtemp_c: 22,
+              condition: {
+                text: 'fair',
+                icon: 'beautiful-img',
               },
             },
-            {
-              date: '2021-01-02',
-              day: {
-                mintemp_c: 28,
-                maxtemp_c: 36,
-                condition: {
-                  text: 'its hot mate',
-                  icon: 'more-imagery',
-                },
+          },
+          {
+            date: '2021-01-02',
+            day: {
+              mintemp_c: 28,
+              maxtemp_c: 36,
+              condition: {
+                text: 'its hot mate',
+                icon: 'more-imagery',
               },
             },
-            {
-              date: '2021-01-03',
-              day: {
-                mintemp_c: 0,
-                maxtemp_c: 1,
-                condition: {
-                  text: 'it snows in aus now',
-                  icon: 'img-url',
-                },
+          },
+          {
+            date: '2021-01-03',
+            day: {
+              mintemp_c: 0,
+              maxtemp_c: 1,
+              condition: {
+                text: 'it snows in aus now',
+                icon: 'img-url',
               },
             },
-          ],
-        },
+          },
+        ],
+
       };
 
       wrapper = shallow(<Forecast forecastData={forecastProps} />);
@@ -80,7 +78,7 @@ describe('index.js', () => {
       expect(wrapper.find('ForecastSummary').exists()).toBe(true);
       expect(wrapper.find('ForecastSummary')
         .dive()
-        .find('h4')).toHaveLength(forecastProps.forecast.forecastday.length);
+        .find('h4')).toHaveLength(forecastProps.forecast.length);
     });
   });
 });
