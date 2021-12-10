@@ -32,7 +32,6 @@ function Landing() {
     } else {
       setForecast({ ...response });
     }
-
   };
 
   return (
